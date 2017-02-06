@@ -1361,6 +1361,10 @@ var steelseries = (function () {
         if (size === 0) {
             size = Math.min(mainCtx.canvas.width, mainCtx.canvas.height);
         }
+        
+        // Properties
+        var minMeasuredValue = maxValue;
+        var maxMeasuredValue = minValue;
 
         // Set the size - also clears the canvas
         mainCtx.canvas.width = size;
@@ -2899,12 +2903,12 @@ var steelseries = (function () {
                 if (null !== area && 0 < area.length) {
                     if (steelseries.Orientation.WEST === orientation) {
                         backgroundContext.translate(centerX, centerX);
-                        backgroundContext.rotate(-HALF_PI);
+                        backgroundContext.rotate(-TWO_PI);
                         backgroundContext.translate(-centerX, -centerX);
                     }
                     if (steelseries.Orientation.EAST === orientation) {
                         backgroundContext.translate(centerX, centerX);
-                        backgroundContext.rotate(HALF_PI);
+                        backgroundContext.rotate(TWO_PI);
                         backgroundContext.translate(-centerX, -centerX);
                     }
                     var areaIndex = area.length;
